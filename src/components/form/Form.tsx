@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
+import Category from "../categories/Category";
 
 const schema = z.object({
   description: z.string().min(3),
@@ -51,21 +52,8 @@ const Form = () => {
             <p className="text-danger">{errors.amount.message}</p>
           )}
         </div>
-        <div className="mb-3">
-          <label htmlFor="category" className="form-label">
-            Category
-          </label>
-          <select
-            id="category"
-            className="form-select"
-            aria-label="Default select example"
-          >
-            <option selected>Category</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
+        <Category selected="">Category</Category>
+
         <button disabled={!isValid} type="submit" className="btn btn-primary">
           Submit
         </button>

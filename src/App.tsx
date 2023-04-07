@@ -1,11 +1,13 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "./components/form/Form";
+import Table from "./components/table/Table";
 
 function App() {
   return (
     <div className="m-3">
       <Form />
+      <Table />
     </div>
   );
 }
