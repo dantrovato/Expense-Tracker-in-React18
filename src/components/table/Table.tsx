@@ -1,4 +1,5 @@
 import Category from "../categories/Category";
+import { useState } from "react";
 
 interface Props {
   descriptionArr: string[];
@@ -7,9 +8,14 @@ interface Props {
 }
 
 const Table = ({ descriptionArr, amountArr, categoryArr }: Props) => {
+  const [category, setCategory] = useState("All categories");
+  const onSelect = () => {
+    console.log("selected");
+  };
+
   return (
     <>
-      <Category value="All categories">{""}</Category>
+      <Category onSelecta={onSelect} value={category}></Category>
       <table className="table table-bordered">
         <thead>
           <tr>

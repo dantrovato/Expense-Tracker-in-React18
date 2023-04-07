@@ -1,21 +1,21 @@
 import React from "react";
 
 interface Props {
-  children: string;
   value: string;
+  onSelecta: () => void;
+  // onSelect: (event: React.SyntheticEvent) => void;
 }
 
-const Category = ({ children, value }: Props) => {
+const Category = ({ value, onSelecta }: Props) => {
   return (
     <>
       <div className="mb-3">
-        <label htmlFor="category" className="form-label">
-          {children}
-        </label>
+        <label htmlFor="category" className="form-label"></label>
         <select
           id="category"
           className="form-select"
           aria-label="Default select example"
+          onChange={onSelecta}
         >
           <option>{value}</option>
           <option>2CB</option>
