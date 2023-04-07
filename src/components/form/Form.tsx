@@ -6,6 +6,7 @@ import Category from "../categories/Category";
 const schema = z.object({
   description: z.string().min(3),
   amount: z.number().min(1),
+  category: z.string().min(1),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -19,6 +20,7 @@ const Form = () => {
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
+    console.log(typeof register);
   };
 
   return (
@@ -52,7 +54,24 @@ const Form = () => {
             <p className="text-danger">{errors.amount.message}</p>
           )}
         </div>
-        <Category selected="">Category</Category>
+        {/* <Category value="">Category</Category> */}
+        <div className="mb-3">
+          <label htmlFor="category" className="form-label">
+            Category
+          </label>
+          <select
+            {...register("category")}
+            id="category"
+            className="form-select"
+            aria-label="Default select example"
+          >
+            <option></option>
+            <option>2CB</option>
+            <option>Molly</option>
+            <option>Charlie</option>
+            <option>ket</option>
+          </select>
+        </div>
 
         <button disabled={!isValid} type="submit" className="btn btn-primary">
           Submit

@@ -2,10 +2,10 @@ import React from "react";
 
 interface Props {
   children: string;
-  selected: string;
+  value: string;
 }
 
-const Category = ({ children, selected }: Props) => {
+const Category = ({ children, value }: Props) => {
   return (
     <>
       <div className="mb-3">
@@ -17,10 +17,11 @@ const Category = ({ children, selected }: Props) => {
           className="form-select"
           aria-label="Default select example"
         >
-          <option selected>{selected}</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option>{value}</option>
+          <option>2CB</option>
+          <option>Molly</option>
+          <option>Charlie</option>
+          <option>ket</option>
         </select>
       </div>
     </>
