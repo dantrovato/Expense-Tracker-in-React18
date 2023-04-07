@@ -6,16 +6,29 @@ import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 
 function App() {
-  const [description, setDescription] = useState([]);
-  const [amount, setAmount] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [descriptionArr, setDescriptionArr] = useState<string[]>([]);
+  const [amountArr, setAmountArr] = useState<number[]>([]);
+  const [categoryArr, setCategoryArr] = useState<string[]>([]);
   const handleSubmit = (data: FieldValues) => {
-    console.log(data);
+    const { description, amount, category } = data;
+    const newDescriptionArr = [...descriptionArr];
+    const newAmountArr = [...amountArr];
+    const newCategoryArr = [...categoryArr];
+    newDescriptionArr.push(description);
+    newAmountArr.push(amount);
+    newCategoryArr.push(category);
+    setDescriptionArr(newDescriptionArr);
+    setAmountArr(newAmountArr);
+    setCategoryArr(newCategoryArr);
   };
   return (
     <div className="m-3">
       <Form onSubmit={handleSubmit} />
-      <Table />
+      <Table
+        descriptionArr={descriptionArr}
+        amountArr={amountArr}
+        categoryArr={categoryArr}
+      />
     </div>
   );
 }

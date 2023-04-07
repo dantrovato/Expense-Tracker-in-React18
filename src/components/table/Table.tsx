@@ -1,6 +1,12 @@
 import Category from "../categories/Category";
 
-const Table = () => {
+interface Props {
+  descriptionArr: string[];
+  amountArr: number[];
+  categoryArr: string[];
+}
+
+const Table = ({ descriptionArr, amountArr, categoryArr }: Props) => {
   return (
     <>
       <Category value="All categories">{""}</Category>
