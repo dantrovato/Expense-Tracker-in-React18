@@ -1,10 +1,13 @@
-import { useState } from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Form from "./components/form/Form";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App">yo</div>;
+  return (
+    <div className="m-3">
+      <Form />
+    </div>
+  );
 }
 
 export default App;
