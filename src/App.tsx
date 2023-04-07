@@ -14,7 +14,7 @@ function App() {
   };
   return (
     <div className="m-3">
-      <Form />
+      <Form onSubmit={handleSubmit} />
       <Table />
     </div>
   );

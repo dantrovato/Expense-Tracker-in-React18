@@ -1,7 +1,10 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FieldValues, useForm } from "react-hook-form";
-import Category from "../categories/Category";
+
+interface Props {
+  onSubmit: (data: FieldValues) => void;
+}
 
 const schema = z.object({
   description: z.string().min(3),
@@ -11,17 +14,17 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-const Form = () => {
+const Form = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: FieldValues) => {
-    console.log(data);
-    console.log(typeof register);
-  };
+  // const onSubmit = (data: FieldValues) => {
+  //   // console.log(data);
+  //   onSubmit(data);
+  // };
 
   return (
     <>
