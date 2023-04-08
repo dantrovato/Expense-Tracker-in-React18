@@ -2,11 +2,14 @@ import React from "react";
 
 interface Props {
   value: string;
-  onSelecta: () => void;
-  // onSelect: (event: React.SyntheticEvent) => void;
+  onSelect: (value: string) => void;
 }
 
-const Category = ({ value, onSelecta }: Props) => {
+const Category = ({ value, onSelect }: Props) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    onSelect(value);
+  };
   return (
     <>
       <div className="mb-3">
@@ -15,13 +18,14 @@ const Category = ({ value, onSelecta }: Props) => {
           id="category"
           className="form-select"
           aria-label="Default select example"
-          onChange={onSelecta}
+          onChange={handleChange}
+          value={value}
         >
-          <option>{value}</option>
-          <option>2CB</option>
-          <option>Molly</option>
-          <option>Charlie</option>
-          <option>ket</option>
+          <option value={value}>{value}</option>
+          <option value="2CB">2CB</option>
+          <option value="Molly">Molly</option>
+          <option value="Charlie">Charlie</option>
+          <option value="Ket">ket</option>
         </select>
       </div>
     </>

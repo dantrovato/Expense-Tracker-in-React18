@@ -1,5 +1,6 @@
 import Category from "../categories/Category";
 import { useState } from "react";
+import { FieldValues } from "react-hook-form";
 
 interface Props {
   descriptionArr: string[];
@@ -9,13 +10,14 @@ interface Props {
 
 const Table = ({ descriptionArr, amountArr, categoryArr }: Props) => {
   const [category, setCategory] = useState("All categories");
-  const onSelect = () => {
-    console.log("selected");
+
+  const handleSelect = (value: string) => {
+    setCategory(value);
   };
 
   return (
     <>
-      <Category onSelecta={onSelect} value={category}></Category>
+      <Category onSelect={handleSelect} value={category}></Category>
       <table className="table table-bordered">
         <thead>
           <tr>
@@ -26,14 +28,16 @@ const Table = ({ descriptionArr, amountArr, categoryArr }: Props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>
-              <button className="btn btn-danger">Delete</button>
-            </td>
-          </tr>
+          {descriptionArr.map((description, index) => (
+            <tr key={index}>
+              <td>{description}</td>
+              <td>{amountArr[index]}</td>
+              <td>{categoryArr[index]}</td>
+              <td>
+                <button className="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

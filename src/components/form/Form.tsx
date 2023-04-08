@@ -18,17 +18,18 @@ const Form = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isValid },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  // const onSubmit = (data: FieldValues) => {
-  //   // console.log(data);
-  //   onSubmit(data);
-  // };
+  const handleFormSubmit = (data: FieldValues) => {
+    onSubmit(data);
+    reset();
+  };
 
   return (
     <>
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
+      <form action="" onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
             Description
