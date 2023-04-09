@@ -9,6 +9,7 @@ const Category = ({ value, onSelect }: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     onSelect(value);
+    console.log(value);
   };
   return (
     <>
@@ -21,7 +22,7 @@ const Category = ({ value, onSelect }: Props) => {
           onChange={handleChange}
           value={value}
         >
-          <option value={value}>{value}</option>
+          <option value="All categories">All categories</option>
           <option value="2CB">2CB</option>
           <option value="Molly">Molly</option>
           <option value="Charlie">Charlie</option>

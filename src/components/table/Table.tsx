@@ -1,19 +1,23 @@
 import Category from "../categories/Category";
 import { useState } from "react";
 import { FieldValues } from "react-hook-form";
+import { Item } from "../Item";
 
 interface Props {
-  descriptionArr: string[];
-  amountArr: number[];
-  categoryArr: string[];
+  // descriptionArr: string[];
+  // amountArr: number[];
+  // categoryArr: string[];
+  items: Item[];
 }
 
-const Table = ({ descriptionArr, amountArr, categoryArr }: Props) => {
+const Table = ({ items }: Props) => {
   const [category, setCategory] = useState("All categories");
 
   const handleSelect = (value: string) => {
     setCategory(value);
   };
+
+  console.log(items);
 
   return (
     <>
@@ -28,11 +32,11 @@ const Table = ({ descriptionArr, amountArr, categoryArr }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {descriptionArr.map((description, index) => (
+          {items.map((item, index) => (
             <tr key={index}>
-              <td>{description}</td>
-              <td>{amountArr[index]}</td>
-              <td>{categoryArr[index]}</td>
+              <td>{item.description}</td>
+              <td>{item.amount}</td>
+              <td>{item.category}</td>
               <td>
                 <button className="btn btn-danger">Delete</button>
               </td>
