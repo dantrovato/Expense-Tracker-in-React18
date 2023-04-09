@@ -18,6 +18,11 @@ const Table = ({ items }: Props) => {
   };
 
   console.log(items);
+  const itemsToDisplay = items.filter((item) => {
+    console.log("category: ", category);
+    console.log("item.category: ", item.category);
+    return category === "All categories" || item.category === category;
+  });
 
   return (
     <>
@@ -32,7 +37,7 @@ const Table = ({ items }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {items.map((item, index) => (
+          {itemsToDisplay.map((item, index) => (
             <tr key={index}>
               <td>{item.description}</td>
               <td>{item.amount}</td>

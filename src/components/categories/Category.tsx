@@ -26,7 +26,7 @@ const Category = ({ value, onSelect }: Props) => {
           <option value="2CB">2CB</option>
           <option value="Molly">Molly</option>
           <option value="Charlie">Charlie</option>
-          <option value="Ket">ket</option>
+          <option value="Ket">Ket</option>
         </select>
       </div>
     </>

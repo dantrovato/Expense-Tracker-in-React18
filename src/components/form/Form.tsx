@@ -73,7 +73,7 @@ const Form = ({ onSubmit }: Props) => {
             <option>2CB</option>
             <option>Molly</option>
             <option>Charlie</option>
-            <option>ket</option>
+            <option>Ket</option>
           </select>
         </div>
 
