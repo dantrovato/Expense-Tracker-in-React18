@@ -4,20 +4,21 @@ import { FieldValues } from "react-hook-form";
 import { Item } from "../Item";
 
 interface Props {
-  // descriptionArr: string[];
-  // amountArr: number[];
-  // categoryArr: string[];
   items: Item[];
+  onDelete: (item: Item) => void;
 }
 
-const Table = ({ items }: Props) => {
+const Table = ({ items, onDelete }: Props) => {
   const [category, setCategory] = useState("All categories");
 
   const handleSelect = (value: string) => {
     setCategory(value);
   };
 
-  console.log(items);
+  const handleDelete = (item: Item) => {
+    onDelete(item);
+  };
+
   const itemsToDisplay = items.filter((item) => {
     console.log("category: ", category);
     console.log("item.category: ", item.category);
@@ -43,7 +44,12 @@ const Table = ({ items }: Props) => {
               <td>{item.amount}</td>
               <td>{item.category}</td>
               <td>
-                <button className="btn btn-danger">Delete</button>
+                <button
+                  onClick={() => handleDelete(item)}
+                  className="btn btn-danger"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

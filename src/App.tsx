@@ -15,10 +15,18 @@ function App() {
     newItems.push({ description, amount, category });
     setItems(newItems);
   };
+
+  const handleDelete = (item: Item) => {
+    const index = items.indexOf(item);
+    const newItems = [...items];
+    newItems.splice(index, 1);
+    setItems(newItems);
+  };
+
   return (
     <div className="m-3">
       <Form onSubmit={handleSubmit} />
-      <Table items={items} />
+      <Table onDelete={handleDelete} items={items} />
     </div>
   );
 }
