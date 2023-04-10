@@ -25,6 +25,12 @@ const Table = ({ items, onDelete }: Props) => {
     return category === "All categories" || item.category === category;
   });
 
+  const getTotal = () => {
+    let total = 0;
+    items.forEach((item) => (total += item.amount));
+    return total;
+  };
+
   return (
     <>
       <Category onSelect={handleSelect} value={category}></Category>
@@ -41,7 +47,7 @@ const Table = ({ items, onDelete }: Props) => {
           {itemsToDisplay.map((item, index) => (
             <tr key={index}>
               <td>{item.description}</td>
-              <td>{item.amount}</td>
+              <td>£{item.amount}</td>
               <td>{item.category}</td>
               <td>
                 <button
@@ -53,6 +59,10 @@ const Table = ({ items, onDelete }: Props) => {
               </td>
             </tr>
           ))}
+          <tr>
+            <td>Total</td>
+            <td>£{getTotal()}</td>
+          </tr>
         </tbody>
       </table>
     </>
