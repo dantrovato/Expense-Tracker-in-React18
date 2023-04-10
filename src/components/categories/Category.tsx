@@ -23,10 +23,11 @@ const Category = ({ value, onSelect }: Props) => {
           value={value}
         >
           <option value="All categories">All categories</option>
-          <option value="2CB">2CB</option>
-          <option value="Molly">Molly</option>
-          <option value="Charlie">Charlie</option>
-          <option value="Ket">Ket</option>
+          <option value="Groceries">Groceries</option>
+          <option value="Clothing">Clothing</option>
+          <option value="House Stuff">House Stuff</option>
+          <option value="Transport">Transport</option>
+          <option value="Leisure">Leisure</option>
         </select>
       </div>
     </>

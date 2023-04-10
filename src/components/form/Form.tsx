@@ -8,7 +8,7 @@ interface Props {
 
 const schema = z.object({
   description: z.string().min(3),
-  amount: z.number().min(1),
+  amount: z.number().min(0),
   category: z.string().min(1),
 });
 
@@ -70,10 +70,11 @@ const Form = ({ onSubmit }: Props) => {
             aria-label="Default select example"
           >
             <option></option>
-            <option>2CB</option>
-            <option>Molly</option>
-            <option>Charlie</option>
-            <option>Ket</option>
+            <option>Groceries</option>
+            <option>Clothing</option>
+            <option>House Stuff</option>
+            <option>Transport</option>
+            <option>Leisure</option>
           </select>
         </div>
 
