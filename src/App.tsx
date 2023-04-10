@@ -5,6 +5,7 @@ import Table from "./components/table/Table";
 import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { Item } from "./components/Item";
+import Header from "./components/header/Header";
 
 function App() {
   const [items, setItems] = useState<Item[]>([]);
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <div className="m-3">
+      <Header />
       <Form onSubmit={handleSubmit} />
       <Table onDelete={handleDelete} items={items} />
     </div>
